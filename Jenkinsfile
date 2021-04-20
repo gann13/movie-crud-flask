@@ -2,6 +2,14 @@ pipeline {
 	agent any
 	stages {
 
+		stage ("Git checkout"){
+			steps {
+				git branch: "master",
+				url: "https://github.com/gann13/movie-crud-flask.git"
+				sh "ls"
+			}
+		}
+		
 		stage ("Python Flask Prepare"){
 			steps {
 				sh "pip3 install -r requirements.txt"
